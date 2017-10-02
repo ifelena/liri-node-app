@@ -1,3 +1,4 @@
+
 var keys = require('./keys.js');
 var fs = require('fs');
 var twitter = require('twitter');
@@ -10,9 +11,9 @@ var getTweets =
 
 
 // for-loop that starts with 2 to skip the path and node command from command line
-for (var i = 2; i < nodeArg.length; i++) {
+//for (var i = 2; i < nodeArg.length; i++) {
 
-}
+//}
 
 
 switch(nodeArg) {
@@ -22,7 +23,7 @@ switch(nodeArg) {
 	case 'do-what-it-says': doWhatItSays(); break;
 
 default: console.log('\r\n' +'Try typing one of the following commands after 'node liri.js' : '+'\r\n'+
-	"1. my-tweets 'any twitter name' " +"\r\n"+
+			"1. my-tweets 'any twitter name' " +"\r\n"+
 			"2. spotify-this-song 'any song name' "+"\r\n"+
 			"3. movie-this 'any movie name' "+"\r\n"+
 			"4. do-what-it-says."+"\r\n"+
@@ -32,7 +33,7 @@ default: console.log('\r\n' +'Try typing one of the following commands after 'no
 function movieThis(){
 		var movie = process.argv[3];
 		if(!movie){
-			movie = "mr nobody";
+			movie = "friday";
 		}
 		params = movie
 		request("http://www.omdbapi.com/?t=" + params + "&y=&plot=short&r=json&tomatoes=true", function (error, response, body) {
@@ -50,7 +51,7 @@ function movieThis(){
 				"Actors: " + movieObject.Actors+"\r\n"+
 				"Rotten Tomatoes Rating: " + movieObject.tomatoRating+"\r\n"+
 				"Rotten Tomatoes URL: " + movieObject.tomatoURL + "\r\n" + 
-				"------------------------------ fin ------------------------------" + "\r\n";
+				"------------------------------ end ------------------------------" + "\r\n";
 				console.log(movieResults);
 				log(movieResults); // calling log function
 			} else {
@@ -69,7 +70,7 @@ function movieThis(){
 		});
 		var twitterUsername = process.argv[3];
 		if(!twitterUsername){
-			twitterUsername = "JahdashaFlagg";
+			twitterUsername = "LittleLai710";
 		}
 		params = {screen_name: twitterUsername};
 		client.get("statuses/user_timeline/", params, function(error, data, response){

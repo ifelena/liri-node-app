@@ -8,3 +8,20 @@ var twitterKeys = {
 }
 
 module.exports = twitterKeys;
+
+
+var spotify = new Spotify({
+  id: <8d76350e22e94bad95498659ada7a3f6>,
+  secret: <c8fd4d7c3fb24ca7bfb12ac015fed20b>
+});
+ 
+spotify.search({ type: 'track', query: 'CREAM' }, function(err, data) {
+  if (err) {
+    return console.log('Error occurred: ' + err);
+  }
+ 
+console.log(data); 
+});
+
+
+module.exports = spotify;
